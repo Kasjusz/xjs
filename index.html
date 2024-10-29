@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Widget</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="/src/style.css" />
+    <script type="module" src="/src/main.ts"></script>
+  </head>
+  <body>
+    <div id="app" class="active">
+      <div widget="widget/a">Widget/a</div>
+      <div>
+        <div></div>
+        <div widget="widget/a">Widget/a</div>
+        <div></div>
+      </div>
+      <div widget="widget/b">Widget/b</div>
+      <div widget="widget/c">Widget/c</div>
+      <div widget="widget/d">Widget/d (init then done/fail to finish)</div>
+      <div widget="widget/x">Widget/x</div>
+      <div widget="widget/c">
+        Widget/c
+        <div widget="widget/c">
+          Widget/c
+          <div widget="widget/c">Widget/c</div>
+        </div>
+      </div>
+      <div widget="widget/x">
+        Widget/x
+        <div widget="widget/c">Widget/c</div>
+      </div>
+    </div>
+    <aside id="panel">
+      <div>
+        Actions:
+        <button id="init">Init</button>
+        <button id="destroy">Destroy</button>
+        <button id="done">Done</button>
+        <button id="fail">Fail</button>
+      </div>
+      <div>Selector: <b id="selector">nothing selected</b></div>
+      <div>
+        Logs:
+        <ul id="logs"></ul>
+      </div>
+    </aside>
+  </body>
+</html>

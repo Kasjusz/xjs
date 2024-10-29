@@ -1,0 +1,60 @@
+body {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+body *:not(aside *) {
+  border: 2px solid black;
+  padding: 10px;
+  margin: 5px;
+}
+.active {
+  border: 2px solid red;
+}
+.bold {
+  font-weight: bold;
+}
+#app {
+  width: calc(100% - 400px);
+  height: 100%;
+  overflow-y: auto;
+}
+#panel {
+  width: 300px;
+  padding: 30px 20px;
+  border: 2px solid black;
+}
+#logs {
+  max-height: 80vh;
+  overflow-y: auto;
+}
+[widget]:not([x]) {
+  background-color: cornflowerblue;
+  &::before {
+    content: "[uninitialized] ";
+  }
+}
+[widget][x="pending"] {
+  background-color: khaki;
+  &::before {
+    content: "[loading] ";
+  }
+}
+[widget][x="done"] {
+  background-color: yellowgreen;
+  &::before {
+    content: "[done self] ";
+  }
+}
+[widget][x="done-tree"] {
+  background-color: green;
+  &::before {
+    content: "[done children] ";
+  }
+}
+[widget][x="failed"] {
+  &::before {
+    content: "[failed] ";
+  }
+  background-color: lightcoral;
+}
